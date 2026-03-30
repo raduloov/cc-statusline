@@ -2,9 +2,7 @@
 
 A custom status line for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows model info, context usage, session cost, and rate limits at a glance.
 
-```
-🤖 Opus 4.6 | 🧠 85.3% | 💰 $3.47 | ⚡ 5h 24% 7d 61%
-```
+![screenshot](screenshot.png)
 
 ## What it shows
 
