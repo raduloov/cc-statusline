@@ -24,7 +24,7 @@ git clone https://github.com/raduloov/cc-statusline.git ~/.claude/cc-statusline
 ### 2. Make the script executable
 
 ```sh
-chmod +x ~/.claude/cc-statusline/statusline.js
+chmod +x ~/.claude/cc-statusline/statusline.sh
 ```
 
 ### 3. Configure Claude Code
@@ -35,7 +35,7 @@ Add this to your `~/.claude/settings.json`:
 {
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/cc-statusline/statusline.js",
+    "command": "~/.claude/cc-statusline/statusline.sh",
     "padding": 0
   }
 }
@@ -49,5 +49,5 @@ The status line will appear at the bottom of your terminal on the next session.
 
 ## Requirements
 
-- Node.js (any recent version)
+- [jq](https://jqlang.github.io/jq/) (`brew install jq` on macOS)
 - Claude Code CLI
