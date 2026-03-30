@@ -33,7 +33,7 @@ Add this to your `~/.claude/settings.json`:
 
 ```json
 {
-  "statusline": {
+  "statusLine": {
     "type": "command",
     "command": "~/.claude/cc-statusline/statusline.js",
     "padding": 0
