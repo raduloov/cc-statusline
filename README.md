@@ -2,7 +2,7 @@
 
 A custom status line for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows model info, context usage, session cost, and rate limits at a glance.
 
-![screenshot](screenshot.png)
+<img width="707" height="154" alt="Screenshot 2026-09-30 at 15 28 02" src="https://github.com/user-attachments/assets/7ec7533b-091b-4b74-930a-ef5f96d8716c" />
 
 ## What it shows
 
