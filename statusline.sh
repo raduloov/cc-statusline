@@ -5,6 +5,7 @@ input=$(cat)
 j() { echo "$input" | jq -r "$1 // empty" 2>/dev/null; }
 
 name=$(j '.model.display_name')
+effort=$(j '.effort.level')
 pct=$(j '.context_window.remaining_percentage')
 cost=$(j '.cost.total_cost_usd')
 rl_5h=$(j '.rate_limits.five_hour.used_percentage')
@@ -19,6 +20,16 @@ ctx_color() {
   else echo "$RED"; fi
 }
 
+effort_color() {
+  case "$1" in
+    low) echo "$GREEN" ;;
+    medium) echo "$YELLOW" ;;
+    high) echo "$RED" ;;
+    xhigh|max) echo "$MAG" ;;
+    *) echo "" ;;
+  esac
+}
+
 rl_color() {
   local p=${1%.*}
   if (( p >= 80 )); then echo "$RED"
@@ -26,7 +37,13 @@ rl_color() {
   else echo "$GREEN"; fi
 }
 
-out="🤖 ${MAG}${name:-Unknown}${RST} | 🧠 $(ctx_color "${pct:-100}")${pct:-100}%${RST}"
+out="🤖 ${MAG}${name:-Unknown}${RST}"
+
+if [[ -n "$effort" ]]; then
+  out+=" | 🎯 $(effort_color "$effort")${effort}${RST}"
+fi
+
+out+=" | 🧠 $(ctx_color "${pct:-100}")${pct:-100}%${RST}"
 
 if [[ -n "$cost" ]] && (( $(echo "$cost > 0" | bc -l) )); then
   out+=" | 💰 \$$(printf '%.2f' "$cost")"

@@ -9,6 +9,7 @@ A custom status line for [Claude Code](https://docs.anthropic.com/en/docs/claude
 | Segment | Description |
 |---------|-------------|
 | 🤖 Model | Current model name |
+| 🎯 Effort | Current reasoning effort level (`low`, `medium`, `high`, `xhigh`, `max`), color-coded (green/yellow/red/magenta). Hidden when the model doesn't support effort |
 | 🧠 Context | Remaining context window %, color-coded (green > 30%, yellow 10-30%, red < 10%) |
 | 💰 Cost | Session cost in USD (hidden when $0) |
 | ⚡ Rate limits | 5-hour and 7-day usage %, color-coded (green < 50%, yellow 50-80%, red > 80%). Only visible for Claude.ai subscribers after the first API response |
